@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Letters 💌</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0f;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: hotpink;
+      text-shadow: 0 0 15px hotpink;
+      margin-bottom: 20px;
+    }
+
+    .letter-box {
+      background: #1a1a25;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px hotpink;
+      margin-bottom: 25px;
+      border: 2px solid hotpink;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: hotpink;
+      color: #0a0a0f;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 18px hotpink;
+    }
+
+    .sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: hotpink;
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes sparkle {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(100vh) scale(0.2); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Love Letters For You 💌</h1>
+
+  <div class="letter-box">
+    <h3>💗 Letter 1: My Jaan</h3>
+    <p>
+      You are the softest part of my heart.  
+      No matter how tough my day gets, just thinking about you brings peace.  
+      Thank you for loving me the way you do.  
+      You are my forever person.
+    </p>
+  </div>
+
+  <div class="letter-box">
+    <h3>💗 Letter 2: My Safe Place</h3>
+    <p>
+      With you, I feel seen, loved, understood.  
+      You never let my inner child fade away.  
+      You protect me, care for me, and give me the purest love.  
+      I adore you more every day.
+    </p>
+  </div>
+
+  <div class="letter-box">
+    <h3>💗 Letter 3: My Forever</h3>
+    <p>
+      I want a lifetime with you —  
+      Your hugs, your voice, your smile,  
+      even your silly anger and your warm hands feeding me food.  
+      I want it all, forever.  
+      You are everything I wished for.
+    </p>
+  </div>
+
+  <a class="btn-back" href="home.html">⟵ Back to Home</a>
+
+  <div class="sparkles"></div>
+
+  <script>
+    const sparkleContainer = document.querySelector('.sparkles');
+
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.animationDuration = 1 + Math.random() * 2 + 's';
+      sparkleContainer.appendChild(sparkle);
+
+      setTimeout(() => sparkle.remove(), 3000);
+    }
+
+    setInterval(createSparkle, 200);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Bucket List</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff007d, #ff34a4, #ff7fcc);
+        color: white;
+        text-align: center;
+        padding: 30px 15px;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-shadow: 0 0 12px #ffb3dd;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+
+    .list-item {
+        background: rgba(255,255,255,0.15);
+        padding: 15px 18px;
+        border-radius: 15px;
+        margin: 12px 0;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 0px 12px rgba(255, 0, 130, 0.4);
+    }
+
+    .list-item button {
+        background: #ff0066;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 12px;
+        color: white;
+        font-size: 0.9rem;
+        box-shadow: 0 0 10px rgba(255,0,120,0.7);
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    .list-item button:hover {
+        transform: scale(1.1);
+    }
+
+    .done {
+        text-decoration: line-through;
+        color: #ffe0f3;
+    }
+
+    .heart {
+        display: inline-block;
+        color: #ffb6e6;
+        font-size: 1.3rem;
+        animation: pop 0.4s ease-out;
+    }
+
+    @keyframes pop {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    } 
+	/* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+	a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+</style>
+</head>
+
+<body>
+
+<h1>💗 Our Bucket List 💗</h1>
+<p>All the little and big things we will do together…</p>
+
+<div id="bucketList">
+
+    <div class="list-item">
+        <span> Marrying each other with parents acceptance and love.</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	<div class="list-item">
+        <span>Go on a long late-night drive together</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Watch a romantic movie cuddling</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Travel to a beautiful hill station</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Cook something together</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Take lots of cute selfies</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Celebrate our birthdays together every year</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Create our own secret ritual</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+    <div class="list-item">
+        <span>Have a picnic date under the sky</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	<div class="list-item">
+        <span>Travelling to each and every country in the world</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	<div class="list-item">
+        <span> Sky diving in Dubai together</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>having a cute little baby girl nammed Shreedha💕</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>owning defender and dream cars together</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Trips with bith families</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Living Most romantic and happiest life together.</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Without Planned Trip</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	<div class="list-item">
+        <span>Trip with no planning and with just one bag with no limit of days.</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Have a picnic date under the sky</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Have a picnic date under the sky</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+	
+	
+	<div class="list-item">
+        <span>Have a picnic date under the sky</span>
+        <button onclick="markDone(this)">✓</button>
+    </div>
+
+</div>
+
+<script>
+function markDone(btn) {
+    let item = btn.parentElement.querySelector("span");
+
+    if (!item.classList.contains("done")) {
+        item.classList.add("done");
+
+        // Add popping heart effect
+        let heart = document.createElement("span");
+        heart.classList.add("heart");
+        heart.innerHTML = "💖";
+        btn.parentElement.appendChild(heart);
+
+        btn.innerText = "✔";
+    }
+}
+</script>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</body>
+</html>

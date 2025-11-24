@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Memories 💗</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff46a5, #ff7bc9, #ffc9ec);
+        font-family: "Poppins", sans-serif;
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 20px;
+        font-size: 2rem;
+        text-shadow: 0 0 15px white;
+    }
+
+    /* Polaroid Style Gallery */
+    .gallery {
+        margin: 25px auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 18px;
+    }
+
+    .polaroid {
+        background: white;
+        padding: 10px 10px 25px 10px;
+        border-radius: 15px;
+        transform: rotate(-2deg);
+        box-shadow: 0 0 20px rgba(255,0,120,0.4);
+        transition: 0.4s;
+    }
+
+    .polaroid:nth-child(even) {
+        transform: rotate(2deg);
+    }
+
+    .polaroid:hover {
+        transform: scale(1.07) rotate(0deg);
+        box-shadow: 0 0 30px rgba(255,0,150,0.8);
+    }
+
+    .polaroid img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        font-size: 12px;
+        color: white;
+        animation: sparkleUp 2.5s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes sparkleUp {
+        from { transform: translateY(0) scale(0.6); opacity: 1; }
+        to { transform: translateY(-80px) scale(1.3); opacity: 0; }
+    }
+
+    /* Fullscreen viewer */
+    #viewer {
+        position: fixed;
+        display: none;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+    }
+
+    #viewer img {
+        width: 90%;
+        max-height: 90%;
+        border-radius: 12px;
+        animation: zoomIn 0.4s;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.6); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+
+ a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+</style>
+</head>
+<body>
+
+<h1>💖 Our Magical Memories 💖</h1>
+
+<!-- Memories Gallery -->
+<div class="gallery">
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic2.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic3.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic1.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic4.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic5.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic6.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic7.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic8.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic9.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic10.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic11.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic12.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic13.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic14.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic15.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic16.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic17.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic18.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic19.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic20.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic21.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic22.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic23.jpeg">
+    </div>
+	<div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic24.jpeg">
+    </div>
+	<div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic25.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic26.jpeg">
+    </div>
+    <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic27.jpeg">
+    </div>
+	<div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic28.jpeg">
+    </div>
+	 <div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic29.jpeg">
+    </div>
+	<div class="polaroid">
+        <img onclick="openViewer(this.src)" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic30.jpeg">
+    </div>
+    
+	
+</div>
+
+<a class="btn" href="home.html">Back to Home</a>
+
+<!-- FULLSCREEN IMAGE VIEWER -->
+<div id="viewer" onclick="closeViewer()">
+    <img id="viewImg" src="">
+</div>
+
+<script>
+/* Floating Sparkles */
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.innerHTML = "✨";
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.top = Math.random() * window.innerHeight + "px";
+    sparkle.style.fontSize = (Math.random() * 10 + 10) + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 2500);
+}
+setInterval(createSparkle, 200);
+
+/* Full Screen Viewer */
+function openViewer(src) {
+    document.getElementById("viewer").style.display = "flex";
+    document.getElementById("viewImg").src = src;
+}
+
+function closeViewer() {
+    document.getElementById("viewer").style.display = "none";
+}
+</script>
+</body>
+</html>

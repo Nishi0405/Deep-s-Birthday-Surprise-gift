@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anything You Want</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff0095, #ff2ebd, #ff72d9);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+        padding-top: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-shadow: 0 0 12px #ffe0f7;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-top: 5px;
+        opacity: 0.9;
+    }
+
+    .grid {
+        margin-top: 35px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 0 20px;
+    }
+
+    .option {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 22px 10px;
+        border-radius: 18px;
+        box-shadow: 0 0 15px rgba(255, 0, 130, 0.5);
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .option:hover {
+        transform: scale(1.07);
+        box-shadow: 0 0 25px rgba(255, 0, 160, 0.9);
+    }
+
+    .option span {
+        font-size: 2.1rem;
+        display: block;
+    }
+
+    /* Popup */
+    #popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.2);
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 0 20px rgba(255,0,120,0.5);
+        display: none;
+        animation: fadein 0.4s ease-out;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; transform: translate(-50%, -45%); }
+        to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    #popupMessage {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    #closeBtn {
+        background: #ff008c;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 12px;
+        font-size: 1rem;
+        color: white;
+        box-shadow: 0 0 12px rgba(255,0,150,0.8);
+        cursor: pointer;
+    }
+	/* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+	 a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+
+</style>
+</head>
+<body>
+
+<h1>✨ Anything You Want ✨</h1>
+<p>Tap on any icon and get your surprise!</p>
+
+<div class="grid">
+    <div class="option" onclick="showMsg(0)">
+        <span>💖</span>
+        Love Boost
+    </div>
+
+    <div class="option" onclick="showMsg(1)">
+        <span>😂</span>
+        Funny Dose
+    </div>
+
+    <div class="option" onclick="showMsg(2)">
+        <span>🌙</span>
+        Warm Comfort
+    </div>
+
+    <div class="option" onclick="showMsg(3)">
+        <span>🌹</span>
+        Romantic Surprise
+    </div>
+
+    <div class="option" onclick="showMsg(4)">
+        <span>🎁</span>
+        Tiny Gift
+    </div>
+
+    <div class="option" onclick="showMsg(5)">
+        <span>✨</span>
+        Magic Words
+    </div>
+</div>
+
+<div id="popup">
+    <p id="popupMessage"></p>
+    <button id="closeBtn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+const messages = [
+    "You deserve all the love in the world… and I promise to give you every bit of it. 💖",
+    "You make me smile even on my worst days… wanna know a secret? You're my happiness! 😄💗",
+    "Come here and let me hug you tightly… you feel like home to me. 🫂🌙",
+    "If I could give you anything… I'd give you the ability to see yourself the way I see you… perfect. 🌹",
+    "Here’s a tiny gift: *my heart* — I think it belongs to you anyway. 🎁❤️",
+    "Your presence is magic… your love is magic… YOU are magic. ✨💗"
+];
+
+function showMsg(i) {
+    document.getElementById("popupMessage").innerText = messages[i];
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</body>
+</html>

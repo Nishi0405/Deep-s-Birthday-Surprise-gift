@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess Game • Jaan & Nisha</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff008c, #2b0030);
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        margin-top: 10px;
+        font-size: 30px;
+        text-shadow: 0 0 12px #ff80d4;
+    }
+
+    .question-box {
+        margin: 20px 0;
+        padding: 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255, 0, 170, 0.6);
+    }
+
+    button {
+        padding: 12px 22px;
+        background: hotpink;
+        border: none;
+        color: white;
+        border-radius: 12px;
+        font-size: 17px;
+        margin-top: 12px;
+        box-shadow: 0 0 15px rgba(255,0,180,0.7);
+    }
+
+    button:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+
+    #answer {
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #ffd6ff;
+        text-shadow: 0 0 12px #ff80e1;
+    }
+
+    a.back {
+        display: inline-block;
+        margin-top: 30px;
+        text-decoration: none;
+        color: #ffe2ff;
+        background: rgba(255,255,255,0.15);
+        padding: 10px 18px;
+        border-radius: 12px;
+        font-size: 18px;
+        box-shadow: 0 0 12px rgba(255,0,150,0.7);
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🔮 Guess What Nisha Will Answer 😉</h1>
+<p>Tap a question and let’s see your prediction skills, Jaan 😘</p>
+
+<div id="questions"></div>
+
+<div id="answer"></div>
+
+<a class="back" href="games.html">⟵ Back to Games</a>
+
+<script>
+const questions = [
+    "What was the first thing she loved about you?",
+    "What makes her blush instantly?",
+    "What does she miss the most about you?",
+    "What is her favourite moment with you?",
+    "What does she think when she sees your message?",
+    "What nickname of yours does she love most?",
+    "What is her dream plan with you?",
+    "What makes her feel butterflies?",
+    "What makes her happiest?",
+    "What does she want to tell you right now?",
+    "What part of you she finds the cutest?",
+    "What makes her feel safe with you?",
+    "What does she want from you the most?",
+    "What future moment she dreams of?",
+    "What does she think your love story is?"
+];
+
+const answers = [
+    "Your sweetness… and your caring eyes 🤭💗",
+    "When you flirt with her… she melts 😘🔥",
+    "Sleeping beside you… and your warm hugs 🥺❤️",
+    "When you feed her and act cute 🥰",
+    "‘My baby texted!’ followed by a big smile 😌💗",
+    "JAAN 😍 (obviously!)",
+    "Cuddling and sleeping in your arms forever 💞",
+    "Your voice… your smile… everything 😫😘",
+    "When you give her attention 🫶✨",
+    "I love you sooo much, baby 💗",
+    "Your cute face when you're angry 😳🔥",
+    "Your arms… her favourite place in the world 🤍",
+    "Your loyalty, love and efforts ❤️",
+    "Cooking, traveling, cuddling… everything together 💞",
+    "Soft, pure, cute and forever 💗"
+];
+
+let container = document.getElementById("questions");
+
+questions.forEach((q, i) => {
+    let box = document.createElement("div");
+    box.classList.add("question-box");
+    box.innerHTML = `<p>${i + 1}. ${q}</p>
+                     <button onclick="reveal(${i})">Guess Answer</button>`;
+    container.appendChild(box);
+});
+
+function reveal(i) {
+    let text = answers[i];
+    document.getElementById("answer").innerHTML = 
+        "💖 " + text + " 💖";
+}
+</script>
+</body>
+</html>

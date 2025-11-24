@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Small Surprise</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff1493, #b30059, #4b0030);
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    h2 {
+        margin-top: 25px;
+        font-size: 2rem;
+        text-shadow: 0 0 12px rgba(255, 20, 147, 1);
+    }
+
+    .gift-box {
+        width: 180px;
+        margin: 80px auto 0;
+        cursor: pointer;
+        transition: 0.4s ease;
+        animation: float 3s infinite ease-in-out;
+    }
+
+    .gift-box:hover {
+        transform: scale(1.07);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Teddy */
+    .teddy {
+        width: 200px;
+        margin: 20px auto;
+        animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    /* Letter */
+    .letter {
+        background: rgba(255,255,255,0.2);
+        padding: 15px;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+        font-size: 1.1rem;
+        animation: fadeIn 1s ease-out;
+    }
+
+    /* Heart Button */
+    .heart-btn {
+        margin-top: 25px;
+        font-size: 1.3rem;
+        background: hotpink;
+        padding: 12px 25px;
+        border-radius: 40px;
+        color: white;
+        display: inline-block;
+        box-shadow: 0 0 22px rgba(255, 20, 147, 1);
+        transition: 0.3s ease;
+    }
+
+    .heart-btn:hover {
+        transform: scale(1.1);
+        background: #ff4db8;
+    }
+
+    /* Balloons */
+    .balloon {
+        position: absolute;
+        width: 60px;
+        animation: rise 6s linear infinite;
+        opacity: 0.9;
+    }
+
+    @keyframes rise {
+        0% { bottom: -100px; opacity: 1; }
+        100% { bottom: 120%; opacity: 0; }
+    }
+
+    /* Hearts & Flowers */
+    .float {
+        position: absolute;
+        font-size: 23px;
+        animation: floatUp 3s linear forwards;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-200px); opacity: 0; }
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-18px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+	/* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+	 a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+</style>
+</head>
+
+<body>
+
+<h2>Tap the Gift, My Love 🎁</h2>
+
+<img src="https://cdn.pixabay.com/animation/2023/11/21/23/16/23-16-01-958__340.png" class="gift-box" id="giftBox">
+
+<div id="surpriseContent" class="hidden">
+
+    <img src="https://i.pinimg.com/originals/c5/0a/c9/c50ac977b8a89140fc3f7bcb1a05e146.gif" class="teddy">
+
+    <div class="letter">
+        My Jaan…  
+        This teddy is me, jumping straight to hug you tight.  
+        I love you more than words, more than dreams,  
+        more than every lifetime. ❤️  
+    </div>
+
+    <div class="heart-btn" id="heartButton">I love you a lot ❤️</div>
+</div>
+
+<script>
+    const gift = document.getElementById("giftBox");
+    const content = document.getElementById("surpriseContent");
+    const heartBtn = document.getElementById("heartButton");
+
+    gift.onclick = () => {
+        gift.style.display = "none";
+        content.classList.remove("hidden");
+        createHearts();
+        createBalloons();
+    };
+
+    heartBtn.onclick = () => {
+        heartBtn.innerHTML = "Happiest Birthday My Love ❤️🎉";
+        heartBtn.style.background = "#ff4db8";
+    };
+
+    function createHearts() {
+        for (let i = 0; i < 25; i++) {
+            let span = document.createElement("span");
+            span.className = "float";
+            span.innerHTML = "💖";
+            span.style.left = Math.random() * 100 + "vw";
+            span.style.top = "60vh";
+            document.body.appendChild(span);
+            setTimeout(() => span.remove(), 3000);
+        }
+    }
+
+    function createBalloons() {
+        for (let i = 0; i < 100; i++) {
+            let img = document.createElement("img");
+            img.src = "https://png.pngtree.com/png-vector/20250701/ourmid/pngtree-realistic-transparent-balloon-render-with-smooth-highlights-helium-filled-appearance-and-png-image_16593121.webp";
+            img.className = "balloon";
+            img.style.left = Math.random() * 100 + "vw";
+            img.style.animationDuration = (5 + Math.random() * 3) + "s";
+            document.body.appendChild(img);
+            setTimeout(() => img.remove(), 600000);
+        }
+    }
+</script>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</body>
+</html>

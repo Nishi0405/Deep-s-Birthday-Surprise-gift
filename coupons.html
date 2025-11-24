@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Hampers</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff1493, #b30059, #4b0030);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 25px;
+        font-size: 2.5rem;
+        text-shadow: 0 0 14px rgba(255, 20, 147, 1);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 40px;
+    }
+
+    .coupon {
+        width: 85%;
+        margin: auto;
+        padding: 18px;
+        background: rgba(255,255,255,0.12);
+        border-radius: 18px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 0 20px rgba(255,20,147,0.9);
+        animation: fadeUp 1.3s ease-in-out;
+        border: 2px dashed rgba(255,255,255,0.6);
+        font-size: 1.2rem;
+    }
+
+    .coupon-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    /* Sparkles */
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle 2.3s infinite ease-in-out;
+        opacity: 0.85;
+    }
+
+    @keyframes sparkle {
+        0% { transform: scale(0.5); opacity: 0.7; }
+        50% { transform: scale(1.4); opacity: 1; }
+        100% { transform: scale(0.5); opacity: 0.7; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+	/* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+	 a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+</style>
+</head>
+
+<body>
+
+<script>
+    for (let i = 0; i < 40; i++) {
+        let s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        s.style.animationDuration = (1.5 + Math.random() * 2.5) + "s";
+        document.body.appendChild(s);
+    }
+</script>
+
+<h1>🎁 Gift Hampers For My Love 🎁</h1>
+
+<div class="container">
+
+    <div class="coupon">
+        <div class="coupon-title">💋 Lifetime Unlimited Kisses Coupon</div>
+        Redeem anytime… anywhere… always valid.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🤗 Lifetime Free Hugs Coupon</div>
+        Unlimited tight hugs from your baby girl forever.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🍫 Kinder Joy Treat Coupon</div>
+        Valid whenever you crave sweetness (like me).
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🛏 Sleep Beside Me Coupon</div>
+        Redeem for cuddles, warmth, peace & forehead kisses.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🎈 One Entire Day With Me Coupon</div>
+        A full day dedicated only to you, Jaan.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🥺 Priority Pass: ONLY YOU</div>
+        No matter what, you will always come first.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">😂 Make Me Laugh Coupon</div>
+        Can be used when you're sad—I'll make you smile instantly.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🧸 Mood Fixing Coupon</div>
+        Whenever you're upset, I’ll comfort you like your baby girl.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🍽 Feed Me With Your Hands Coupon</div>
+        My favourite thing you do for me… and forever valid.
+    </div>
+
+    <div class="coupon">
+        <div class="coupon-title">🎮 Play Together Coupon</div>
+        Games, fun, teasing, laughing — your choice.
+    </div>
+
+</div>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Pages 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+        color: white;
+        text-align: center;
+    }
+
+    .page {
+        display: none;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .active {
+        display: block;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    h1 {
+        font-size: 50px;
+        color: hotpink;
+        text-shadow: 0 0 20px hotpink;
+    }
+
+    button {
+        background: hotpink;
+        color: white;
+        padding: 15px 35px;
+        border: none;
+        margin: 10px;
+        border-radius: 15px;
+        font-size: 20px;
+        box-shadow: 0 0 15px hotpink;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px hotpink;
+    }
+
+    /* Glowing text animation */
+    @keyframes glow {
+        0% { text-shadow: 0 0 5px hotpink; }
+        50% { text-shadow: 0 0 20px hotpink, 0 0 40px deeppink; }
+        100% { text-shadow: 0 0 5px hotpink; }
+    }
+
+    .glow {
+        animation: glow 2s infinite;
+    }
+
+    /* Fireworks canvas */
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+	
+	 a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+</style>
+
+<script>
+function show(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+}
+
+/* FIREWORKS SCRIPT */
+window.addEventListener("load", ()=> {
+    const canvas = document.getElementById("fireCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    const colors = ["#ff80bf", "#ff4da6", "#ff1a8c", "#ff66cc", "#e60073"];
+
+    function randomFirework() {
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height / 1.5;
+        let size = 2 + Math.random() * 4;
+
+        for (let i = 0; i < 40; i++) {
+            let angle = (Math.PI * 2) / 40 * i;
+            let radius = Math.random() * 60 + 20;
+            setTimeout(() => {
+                ctx.beginPath();
+                ctx.arc(x + Math.cos(angle) * radius, 
+                        y + Math.sin(angle) * radius, 
+                        size,
+                        0, Math.PI * 2);
+                ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+                ctx.fill();
+            }, i * 20);
+        }
+    }
+
+    setInterval(randomFirework, 700);
+});
+</script>
+</head>
+
+<body onload="show('thankYou')">
+
+<!-- THANK YOU PAGE -->
+<div class="page" id="thankYou">
+    <h1 class="glow">✨ Thank You for Visiting ✨</h1>
+    <p style="font-size:22px;">Your presence made this special 💖</p>
+    <button onclick="show('loveForever')">Next</button>
+</div>
+
+
+<!-- I LOVE YOU FOREVER PAGE -->
+<div class="page" id="loveForever">
+    <h1 class="glow">❤️ I Love You Forever ❤️</h1>
+    <p style="font-size:25px;">No matter what, always and forever…</p>
+    <button onclick="show('everythingPage')">Next</button>
+</div>
+
+
+<!-- YOU ARE MY EVERYTHING PAGE -->
+<div class="page" id="everythingPage">
+    <h1 class="glow">💗 You Are My Everything 💗</h1>
+    <p style="font-size:22px;">My reason. My smile. My peace.</p>
+
+    <div style="font-size:40px; margin-top:20px;" class="glow">❤️✨💞✨❤️</div>
+
+    <button onclick="show('fireworksPage')">Next</button>
+</div>
+
+
+<!-- FIREWORKS PAGE -->
+<div class="page" id="fireworksPage">
+    <canvas id="fireCanvas"></canvas>
+    <h1 class="glow" style="position:absolute; top:40%;">🎆 Hot Pink Fireworks 🎆</h1>
+
+    <button style="position:absolute; bottom:30px; left:50%; transform:translateX(-50%);" onclick="show('hugPage')">
+        Next
+    </button>
+</div>
+
+
+<!-- COME AND HUG ME PAGE -->
+<div class="page" id="hugPage">
+    <h1 class="glow">🤗 Now Come and Hug Me! 🤗</h1>
+    <p style="font-size:26px;">I’m waiting… 💖</p>
+    <div style="font-size:60px;">💞🤍💞</div>
+
+    <button onclick="show('thankYou')">Restart</button>
+</div>
+</body>
+</html>

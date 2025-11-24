@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Deep — Your Surprise 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --hot:#ff007a; --baby:#ffd6ea; --lav:#cfa2ff; --black:#07050a; --white:#fff;
+    --accent1:#ff77d4; --accent2:#89c2ff;
+  }
+  
+  footer{display:flex;gap:12px;align-items:center;flex-direction:column;margin-top:10px}
+.home{padding:10px 18px;background:var(--black);color:var(--hot);border-radius:10px;text-decoration:none;font-weight:600}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:"Poppins",sans-serif;background:linear-gradient(135deg,var(--baby),#ffe6f5, #f3e8ff);color:var(--black);overflow-x:hidden}
+  .wrap{max-width:980px;margin:0 auto;padding:22px;display:flex;flex-direction:column;gap:16px;align-items:center}
+  header{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  h1{font-size:clamp(1.4rem,5vw,2.2rem);margin:0;color:var(--hot);text-shadow:0 0 14px rgba(255,0,140,0.12)}
+  .sub{font-size:0.95rem;opacity:0.9}
+
+  /* main card */
+  .card{width:100%;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.82));border-radius:18px;padding:18px;box-shadow:0 20px 60px rgba(10,6,20,0.08);position:relative;overflow:hidden}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+  @media(max-width:860px){.grid{grid-template-columns:1fr;}}
+  .left{padding:10px}
+  .right{padding:10px}
+
+  /* picture */
+  .photo{
+    width:100%;max-width:520px;height:auto;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,#fff,#fff0);box-shadow:0 12px 30px rgba(255,0,150,0.08);margin:10px 0;
+  }
+  .photo img{width:100%;display:block;height:auto}
+
+  /* buttons */
+  .btn-row{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{padding:12px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-size:1rem}
+  .btn.primary{background:linear-gradient(90deg,var(--hot),var(--accent1));color:white;box-shadow:0 12px 30px rgba(255,0,140,0.16)}
+  .btn.soft{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--black)}
+  .btn.heart{background:linear-gradient(90deg,#fff6fb,#ffeef9);color:#33123b}
+
+  /* typewriter area */
+  .letter{margin-top:12px;background:linear-gradient(180deg,#fff,#fff0);padding:14px;border-radius:12px;min-height:120px;font-size:1rem;line-height:1.5}
+  .small{font-size:0.9rem;color:#333}
+
+  /* popup modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(7,5,10,0.6);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .modal{background:white;padding:18px;border-radius:12px;max-width:420px;width:96%;color:#111;box-shadow:0 20px 60px rgba(10,6,20,0.2)}
+  .close{margin-top:12px;padding:10px 12px;border-radius:10px;border:none;background:var(--hot);color:white;cursor:pointer}
+
+  /* small widgets */
+  .notes{display:flex;flex-direction:column;gap:8px}
+  .note-btn{background:linear-gradient(90deg,#ffb3dd,#ffd1f0);padding:10px;border-radius:12px;border:none;cursor:pointer}
+
+  /* footer */
+  footer{display:flex;gap:12px;align-items:center;flex-direction:column;margin-top:6px}
+  .home{padding:10px 18px;background:var(--black);color:var(--hot);border-radius:12px;text-decoration:none}
+
+  /* hearts canvas */
+  #heartsCanvas{position:fixed;right:0;bottom:0;left:0;top:0;pointer-events:none;z-index:2}
+
+  /* stars background (subtle) */
+  .stars{position:fixed;inset:0;background:radial-gradient(closest-side, rgba(255,255,255,0.8) 1px, transparent 1px);background-size:3px 3px;opacity:0.06;z-index:0}
+  .twinkle{position:fixed;inset:0;pointer-events:none;z-index:1}
+
+  @media (max-width:520px){
+    .card{padding:14px}
+    .letter{min-height:100px}
+    .photo{max-width:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- stars subtle layer -->
+<div class="stars" aria-hidden="true"></div>
+<div class="twinkle" id="twinkleLayer" aria-hidden="true"></div>
+
+<!-- hearts floating canvas -->
+<canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>For Deep — My Jaan 💗</h1>
+      <div class="sub">A tiny universe of our memories, sounds & little surprises.</div>
+    </div>
+  </header>
+
+  <div class="card" role="main">
+    <div class="grid">
+      <div class="left">
+        <!-- photo -->
+        <div class="photo" id="photoBox">
+          <!-- Replace src with your photo file name -->
+          <img id="mainPhoto" src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\pic30.jpeg" alt="Us" onerror="this.style.opacity=0.8;this.alt='Your photo here'">
+        </div>
+
+        <!-- Typewriter love letter -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <strong>Love Letter</strong>
+            <div class="btn-row">
+              <button class="btn primary" id="typeBtn">Open Letter ✨</button>
+              <button class="btn soft" id="stopType">Stop</button>
+            </div>
+          </div>
+
+          <div class="letter" id="letterBox">
+            <div class="small">Press <b>Open Letter</b> to read a typed-out note from me.</div>
+          </div>
+        </div>
+
+        <!-- extra interactive surprises -->
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+          <button class="btn heart" id="reasonBtn">🎯 Give me a reason (tap a number)</button>
+          <button class="btn soft" id="quizBtn">🧠 Memory Quiz</button>
+          <button class="btn primary" id="magicBtn">🎁 Tiny Magical Surprise</button>
+        </div>
+
+      </div>
+
+      <aside class="right">
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+          <div style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px">
+            <button class="btn primary" id="playTuneBtn">🎵 Play Tune</button>
+            <button class="btn soft" id="pauseTuneBtn">⏸ Pause</button>
+          </div>
+
+          <div style="width:100%;margin-top:8px">
+            <strong style="display:block;text-align:left">Quick Love Notes</strong>
+            <div class="notes" style="margin-top:8px">
+              <button class="note-btn" onclick="openModal('<b><i>You keep my childish joy alive, Jaan 🌼</i></b>')">Note 1</button>
+              <button class="note-btn" onclick="openModal('<b><i>You are the calm in my chaos, Deep 🌙</i></b>')">Note 2</button>
+              <button class="note-btn" onclick="openModal('<b><i>You gave me the childhood I missed 💛</i></b>')">Note 3</button>
+            </div>
+          </div>
+
+          <div style="width:100%;margin-top:12px">
+            <strong style="display:block;text-align:left">Little Extras</strong>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <button class="btn soft" onclick="openModal('<b><i>Redeem: 1 free long hug (call)</i></b>')">Hug Coupon</button>
+              <button class="btn soft" onclick="openModal('<b><i>Redeem: 1 surprise picnic (promise)</i></b>')">Date Coupon</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+     <footer>
+    <a class="home" href="home.html">⬅ Back to Secret</a>
+    <small style="opacity:.8">Made with all my heart — Nishtha ❤️</small>
+  </footer>
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modalBg" role="dialog" aria-hidden="true">
+  <div class="modal" id="modalBox">
+    <div id="modalContent" style="font-size:1rem;line-height:1.5"></div>
+    <button class="close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- Audio (replace 'yourmusic.mp3' with your file) -->
+<audio id="tune" loop>
+  <source src="C:\Users\Nishtha\OneDrive\Desktop\bday surprise\song.mp3" type="audio/mpeg">
+  <!-- If you want an online file, put the URL here. -->
+</audio>
+
+<script>
+/* -----------------------------
+   Floating hearts canvas
+   ----------------------------- */
+const canvas = document.getElementById('heartsCanvas');
+const ctx = canvas.getContext('2d');
+let W = canvas.width = window.innerWidth;
+let H = canvas.height = window.innerHeight;
+window.addEventListener('resize', ()=>{ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; });
+
+class Heart {
+  constructor(){
+    this.reset();
+  }
+  reset(){
+    this.x = Math.random()*W;
+    this.y = H + Math.random()*200;
+    this.size = 6 + Math.random()*18;
+    this.vy = 1 + Math.random()*2;
+    this.vx = (Math.random()-0.5)*1.2;
+    this.opacity = 0.6 + Math.random()*0.4;
+    this.color = `rgba(255,${80+Math.round(Math.random()*120)},${150+Math.round(Math.random()*80)},${this.opacity})`;
+    this.life = 0;
+    this.maxLife = 300 + Math.random()*400;
+  }
+  draw(){
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(Math.PI/4);
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+    ctx.restore();
+  }
+  update(){
+    this.y -= this.vy;
+    this.x += this.vx;
+    this.life++;
+    if(this.y < -50 || this.life > this.maxLife) this.reset();
+  }
+}
+const hearts = new Array(22).fill().map(()=> new Heart());
+function heartLoop(){
+  ctx.clearRect(0,0,W,H);
+  for(const h of hearts){ h.update(); h.draw(); }
+  requestAnimationFrame(heartLoop);
+}
+heartLoop();
+
+/* -----------------------------
+   Twinkling stars (subtle)
+   ----------------------------- */
+const twLayer = document.getElementById('twinkleLayer');
+function makeTwinkles(){
+  const count = Math.round(window.innerWidth / 12);
+  let html = '';
+  for(let i=0;i<count;i++){
+    const left = Math.random()*100;
+    const top = Math.random()*100;
+    const size = 1 + Math.random()*2.5;
+    const delay = Math.random()*6;
+    html += `<div style="position:absolute;left:${left}%;top:${top}%;width:${size}px;height:${size}px;border-radius:50%;background:rgba(255,255,255,0.95);opacity:0.9;filter:blur(0.4px);animation:tw ${2+Math.random()*4}s ${delay}s infinite alternate"></div>`;
+  }
+  twLayer.innerHTML = html + `<style>@keyframes tw{from{opacity:0.15;transform:scale(0.8)}to{opacity:0.9;transform:scale(1.2)}}</style>`;
+}
+makeTwinkles();
+window.addEventListener('resize', ()=> setTimeout(makeTwinkles,120));
+
+/* -----------------------------
+   Modal functions
+   ----------------------------- */
+const modalBg = document.getElementById('modalBg');
+const modalContent = document.getElementById('modalContent');
+function openModal(html){
+  modalContent.innerHTML = html;
+  modalBg.style.display = 'flex';
+  modalBg.setAttribute('aria-hidden','false');
+}
+function closeModal(){
+  modalBg.style.display = 'none';
+  modalBg.setAttribute('aria-hidden','true');
+}
+
+/* -----------------------------
+   Typewriter letter
+   ----------------------------- */
+const letterBox = document.getElementById('letterBox');
+const typeBtn = document.getElementById('typeBtn');
+const stopType = document.getElementById('stopType');
+
+const letterText = `Ghattudu Pattudu,
+
+From the day I nervously spoke to you during that CR election, my world began to change — quietly at first, then forever.
+You listened when I had no strength to speak, you held pieces of me I thought were lost, and you made space for the child in me to laugh again.
+This is our little universe — small, soft, and entirely ours. I love you more than words I type here; still, I want you to read them and feel my heart resting in your name.
+
+Always yours,
+nisha 💗`;
+
+let typeTimer = null;
+function typeWriter(text, target, speed=28){
+  let i=0;
+  target.innerHTML = '';
+  typeTimer = setInterval(()=>{
+    target.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+    i++;
+    target.scrollTop = target.scrollHeight;
+    if(i >= text.length){ clearInterval(typeTimer); typeTimer=null; }
+  }, speed);
+}
+typeBtn.addEventListener('click', ()=> {
+  if(typeTimer) return;
+  typeWriter(letterText, letterBox, 28);
+});
+stopType.addEventListener('click', ()=> {
+  if(typeTimer){ clearInterval(typeTimer); typeTimer=null; }
+});
+
+/* -----------------------------
+   Music controls
+   ----------------------------- */
+const tune = document.getElementById('tune');
+const playTuneBtn = document.getElementById('playTuneBtn');
+const pauseTuneBtn = document.getElementById('pauseTuneBtn');
+
+playTuneBtn.addEventListener('click', ()=> {
+  tune.play().catch(()=>{}); playTuneBtn.textContent = 'Playing 🎵';
+});
+pauseTuneBtn.addEventListener('click', ()=> {
+  tune.pause(); playTuneBtn.textContent = 'Play Tune 🎵';
+});
+
+/* -----------------------------
+   Tiny interactive surprises
+   ----------------------------- */
+
+// Reason generator: ask him a number (1-10) and show that many reasons you love him
+document.getElementById('reasonBtn').addEventListener('click', ()=>{
+  const n = prompt('Pick a number between 1 and 10 — I will tell you that many reasons why I love you.');
+  const num = Math.max(1, Math.min(10, parseInt(n)||1));
+  const reasons = [
+    'Your soft voice that calms every storm.',
+    'The way you make silly jokes and laugh loudly.',
+    'Your loyalty — it makes me feel safe.',
+    'You always stand by me, even in hard times.',
+    'The small gifts you give — they are thoughtful.',
+    'You let me be childlike and silly.',
+    'Your hugs that feel like home.',
+    'You listen patiently to every ramble.',
+    'You make me dream of a gentle future.',
+    'You are simply, wonderfully you.'
+  ];
+  const chosen = reasons.slice(0, num).map((r,i)=>`<b>${i+1}.</b> ${r}`).join('<br>');
+  openModal(`<div style="text-align:left">${chosen}</div>`);
+});
+
+// Memory quiz
+document.getElementById('quizBtn').addEventListener('click', ()=>{
+  const a = prompt('Which date did we first speak? (e.g. 19 July 2024)');
+  const b = prompt('Which temple did we visit that was peaceful for us? (one word)');
+  let score = 0;
+  if(a && a.trim().toLowerCase() === '19 july 2024') score++;
+  if(b && /iskcon/i.test(b.trim())) score++;
+  openModal(`<b><i>Your score: ${score} / 2</i></b><br><br>Every memory is special — we remember them together.`);
+});
+
+// Magical surprise: confetti + big typed "I love you"
+document.getElementById('magicBtn').addEventListener('click', ()=>{
+  // burst of hearts
+  burstHearts(36);
+  // typed big message
+  openModal('<div id="bigMsg" style="font-size:1.1rem;line-height:1.4"></div>');
+  const msg = 'Jaan, Mara Ghattuda Pattuda, I love you beyond what words can hold. Happiest Birthday to the most special person of my life, , my Jaan. 💗';
+  let i=0;
+  const target = document.getElementById('bigMsg');
+  const tm = setInterval(()=>{
+    target.innerHTML += msg.charAt(i);
+    i++;
+    if(i>=msg.length){ clearInterval(tm); }
+  },28);
+});
+
+/* -----------------------------
+   heart bursts (interactive)
+   ----------------------------- */
+function burstHearts(count=20){
+  for(let i=0;i<count;i++){
+    const el = document.createElement('div');
+    const size = 10 + Math.random()*26;
+    el.style.position='fixed';
+    el.style.left = (50 + (Math.random()-0.5)*60) + '%';
+    el.style.top = (50 + (Math.random()-0.5)*50) + '%';
+    el.style.width = size+'px';
+    el.style.height = size+'px';
+    el.style.background = 'linear-gradient(45deg,#fff,#ffd8f5)';
+    el.style.transform = 'rotate(45deg)';
+    el.style.borderRadius = '3px 3px 0 0';
+    el.style.zIndex = 60;
+    el.style.pointerEvents = 'none';
+    el.style.opacity = 1;
+    document.body.appendChild(el);
+    const dx = (Math.random()-0.5)*600;
+    const dy = - (100 + Math.random()*600);
+    el.animate([
+      { transform:`translate(0px,0px) rotate(45deg)`, opacity:1 },
+      { transform:`translate(${dx}px,${dy}px) rotate(360deg)`, opacity:0 }
+    ],{duration:1200+Math.random()*900, easing:'cubic-bezier(.2,.9,.25,1)'});
+    setTimeout(()=> el.remove(), 2200);
+  }
+}
+
+/* -----------------------------
+   subtle UX: clicking photo edits small caption
+   ----------------------------- */
+document.getElementById('photoBox').addEventListener('click', ()=>{
+  const txt = prompt('Write a tiny caption for the photo (it will show in a pop-up).');
+  if(txt) openModal(`<b><i>${txt}</i></b>`);
+});
+
+/* -----------------------------
+   small safeguard: pause audio when leaving page
+   ----------------------------- */
+window.addEventListener('blur', ()=>{ try{ tune.pause(); }catch(e){} });
+
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style>
+  :root{ --hot:#ff007a; --baby:#ffd6ea; --lav:#cfa2ff; --black:#07050a; --white:#fff; --accent1:#ff77d4; --accent2:#89c2ff; }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:"Poppins",sans-serif;background:linear-gradient(135deg,var(--baby),#ffe6f5,#f3e8ff);color:var(--black);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:18px;display:flex;flex-direction:column;gap:14px;align-items:center}
+  header{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  h1{font-size:clamp(1.4rem,5vw,2.2rem);margin:0;color:var(--hot);text-shadow:0 0 12px rgba(255,0,140,0.08)}
+  .sub{font-size:0.95rem;opacity:0.9}
+
+  .card{width:100%;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(255,255,255,0.92));border-radius:16px;padding:14px;box-shadow:0 18px 40px rgba(10,6,20,0.06);position:relative;overflow:hidden}
+  .grid{display:grid;grid-template-columns:1fr 320px;gap:12px;align-items:start}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .photo{width:100%;max-width:520px;border-radius:12px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(255,0,140,0.06)}
+  .photo img{width:100%;height:auto;display:block}
+
+  .btn-row{display:flex;flex-wrap:wrap;gap:8px}
+  .btn{padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:600;font-size:0.98rem}
+  .btn.primary{background:linear-gradient(90deg,var(--hot),var(--accent1));color:white;box-shadow:0 10px 30px rgba(255,0,140,0.16)}
+  .btn.soft{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--black)}
+  .btn.heart{background:linear-gradient(90deg,#fff6fb,#ffeef9);color:#33123b}
+
+  .letter{margin-top:12px;background:linear-gradient(180deg,#fff,#fff0);padding:12px;border-radius:10px;min-height:120px;font-size:0.98rem;line-height:1.6;overflow:auto}
+  .small{font-size:0.9rem;color:#333}
+  .notes{display:flex;flex-direction:column;gap:8px}
+  .note-btn{background:linear-gradient(90deg,#ffb3dd,#ffd1f0);padding:10px;border-radius:10px;border:none;cursor:pointer;text-align:left}
+
+  .modal-bg{position:fixed;inset:0;background:rgba(7,5,10,0.6);display:none;align-items:center;justify-content:center;padding:12px;z-index:60}
+  .modal{background:white;padding:18px;border-radius:12px;max-width:460px;width:96%;color:#111;box-shadow:0 20px 60px rgba(10,6,20,0.18)}
+  .close{margin-top:12px;padding:10px 12px;border-radius:10px;border:none;background:var(--hot);color:white;cursor:pointer}
+
+  .promises{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+  .promise-item{background:linear-gradient(90deg,#fff,#fff0);padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);display:flex;justify-content:space-between;align-items:center}
+  .small-btn{padding:8px 10px;border-radius:8px;border:none;background:#f0f0f8;cursor:pointer}
+
+  footer{display:flex;gap:12px;align-items:center;flex-direction:column;margin-top:10px}
+  .home{padding:10px 18px;background:var(--black);color:var(--hot);border-radius:10px;text-decoration:none;font-weight:600}
+
+  #heartsCanvas{position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:10}
+  .stars{position:fixed;inset:0;pointer-events:none;opacity:0.08;z-index:5;background:radial-gradient(closest-side,rgba(255,255,255,0.9) 1px,transparent 1px);background-size:3px 3px}
+</style>
+
+</body>
+</html>

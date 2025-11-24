@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .heart-btn {
+      width: 180px;
+      height: 180px;
+      background: hotpink;
+      position: relative;
+      transform: rotate(-45deg);
+      animation: glow 2s infinite alternate;
+      cursor: pointer;
+    }
+
+    .heart-btn:before,
+    .heart-btn:after {
+      content: "";
+      width: 180px;
+      height: 180px;
+      background: hotpink;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart-btn:before { top: -90px; }
+    .heart-btn:after { left: 90px; }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 20px hotpink; }
+      to { box-shadow: 0 0 40px hotpink; }
+    }
+
+    .tap-text {
+      position: absolute;
+      bottom: 60px;
+      font-size: 1.3rem;
+      color: #f4a9ff;
+      letter-spacing: 1px;
+      animation: fade 1.6s infinite alternate;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body onclick="window.location.href='home.html'">
+  <div class="heart-btn"></div>
+  <div class="tap-text">Tap the Heart ❤️</div>
+</body>
+</html>
+

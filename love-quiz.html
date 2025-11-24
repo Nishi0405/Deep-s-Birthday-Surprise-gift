@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Quiz • Deep & Nisha</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff008c, #2b0030);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        text-shadow: 0 0 10px #ff6fc9;
+    }
+
+    .quiz-box {
+        background: rgba(255,255,255,0.15);
+        padding: 15px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        text-align: left;
+        box-shadow: 0 0 10px rgba(255,0,140,0.5);
+    }
+
+    .quiz-box p {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    label {
+        display: block;
+        margin: 6px 0;
+        padding: 6px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+    }
+
+    button {
+        background: hotpink;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        margin-top: 15px;
+        box-shadow: 0 0 15px rgba(255,0,180,0.7);
+    }
+
+    .result {
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: 700;
+        text-shadow: 0 0 10px #ff8ad9;
+    }
+
+    a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffd9ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(255,0,150,0.6);
+    }
+</style>
+
+</head>
+<body>
+
+<h1>💖 Love Quiz For My Jaan 💖</h1>
+<p>Let’s see how well you know your Nisha 😉</p>
+
+<form id="quizForm">
+
+<!-- QUESTIONS START -->
+<div class="quiz-box">
+<p>1. What is Nisha’s favourite thing about you?</p>
+<label><input type="radio" name="q1"> Your caring nature</label>
+<label><input type="radio" name="q1"> Your cuteness</label>
+<label><input type="radio" name="q1"> Your smile</label>
+</div>
+
+<div class="quiz-box">
+<p>2. What does Nisha call you the most?</p>
+<label><input type="radio" name="q2"> Baby</label>
+<label><input type="radio" name="q2"> Jaan</label>
+<label><input type="radio" name="q2"> Shona</label>
+</div>
+
+<div class="quiz-box">
+<p>3. What makes Nisha happiest?</p>
+<label><input type="radio" name="q3"> Your hugs</label>
+<label><input type="radio" name="q3"> Your kisses</label>
+<label><input type="radio" name="q3"> Your voice</label>
+</div>
+
+<div class="quiz-box">
+<p>4. Nisha loves when you…</p>
+<label><input type="radio" name="q4"> Feed her</label>
+<label><input type="radio" name="q4"> Hold her hand</label>
+<label><input type="radio" name="q4"> Hug her tightly</label>
+</div>
+
+<div class="quiz-box">
+<p>5. What balloon did you buy for her?</p>
+<label><input type="radio" name="q5"> Heart balloon</label>
+<label><input type="radio" name="q5"> Star balloon</label>
+<label><input type="radio" name="q5"> Elephant balloon</label>
+</div>
+
+<div class="quiz-box">
+<p>6. Nisha’s softest spot for you is…</p>
+<label><input type="radio" name="q6"> Your hard work</label>
+<label><input type="radio" name="q6"> Your maturity</label>
+<label><input type="radio" name="q6"> Your funny moments</label>
+</div>
+
+<div class="quiz-box">
+<p>7. What food moment does she love?</p>
+<label><input type="radio" name="q7"> Eating together</label>
+<label><input type="radio" name="q7"> You feeding her</label>
+<label><input type="radio" name="q7"> Cooking together</label>
+</div>
+
+<div class="quiz-box">
+<p>8. What makes her feel safest?</p>
+<label><input type="radio" name="q8"> Your arm around her</label>
+<label><input type="radio" name="q8"> Your voice</label>
+<label><input type="radio" name="q8"> Your smile</label>
+</div>
+
+<div class="quiz-box">
+<p>9. What reminds her of childhood?</p>
+<label><input type="radio" name="q9"> You teasing her</label>
+<label><input type="radio" name="q9"> You pampering her</label>
+<label><input type="radio" name="q9"> You scolding her lightly</label>
+</div>
+
+<div class="quiz-box">
+<p>10. What does she love receiving?</p>
+<label><input type="radio" name="q10"> Kinder Joy</label>
+<label><input type="radio" name="q10"> Flowers</label>
+<label><input type="radio" name="q10"> Chocolates</label>
+</div>
+
+<div class="quiz-box">
+<p>11. What nickname fits her love for you?</p>
+<label><input type="radio" name="q11"> Your little baby</label>
+<label><input type="radio" name="q11"> Your princess</label>
+<label><input type="radio" name="q11"> Your soft girl</label>
+</div>
+
+<div class="quiz-box">
+<p>12. What does she love the most about your bond?</p>
+<label><input type="radio" name="q12"> The comfort</label>
+<label><input type="radio" name="q12"> The fun</label>
+<label><input type="radio" name="q12"> The loyalty</label>
+</div>
+
+<div class="quiz-box">
+<p>13. Which moment she misses the most?</p>
+<label><input type="radio" name="q13"> Sleeping beside you</label>
+<label><input type="radio" name="q13"> Hugging you</label>
+<label><input type="radio" name="q13"> Eating together</label>
+</div>
+
+<div class="quiz-box">
+<p>14. What does she love in your eyes?</p>
+<label><input type="radio" name="q14"> Warmth</label>
+<label><input type="radio" name="q14"> Innocence</label>
+<label><input type="radio" name="q14"> Love</label>
+</div>
+
+<div class="quiz-box">
+<p>15. What does she love when you're angry?</p>
+<label><input type="radio" name="q15"> You calm down fast</label>
+<label><input type="radio" name="q15"> You look cute</label>
+<label><input type="radio" name="q15"> You still care</label>
+</div>
+
+<div class="quiz-box">
+<p>16. What is her dream date?</p>
+<label><input type="radio" name="q16"> Long hug</label>
+<label><input type="radio" name="q16"> Sitting together quietly</label>
+<label><input type="radio" name="q16"> Eating her fav snacks</label>
+</div>
+
+<div class="quiz-box">
+<p>17. What does she want from you the most?</p>
+<label><input type="radio" name="q17"> Efforts</label>
+<label><input type="radio" name="q17"> Attention</label>
+<label><input type="radio" name="q17"> Love</label>
+</div>
+
+<div class="quiz-box">
+<p>18. What makes her blush?</p>
+<label><input type="radio" name="q18"> Your compliments</label>
+<label><input type="radio" name="q18"> Your teasing</label>
+<label><input type="radio" name="q18"> Your kisses</label>
+</div>
+
+<div class="quiz-box">
+<p>19. What future moment she dreams of?</p>
+<label><input type="radio" name="q19"> Sleeping in your arms</label>
+<label><input type="radio" name="q19"> Cooking together</label>
+<label><input type="radio" name="q19"> Going on trips</label>
+</div>
+
+<div class="quiz-box">
+<p>20. What makes her emotional?</p>
+<label><input type="radio" name="q20"> Your loyalty</label>
+<label><input type="radio" name="q20"> Your efforts</label>
+<label><input type="radio" name="q20"> Your love</label>
+</div>
+
+<div class="quiz-box">
+<p>21. What does Nisha think you deserve?</p>
+<label><input type="radio" name="q21"> All love</label>
+<label><input type="radio" name="q21"> All success</label>
+<label><input type="radio" name="q21"> All happiness</label>
+</div>
+
+<div class="quiz-box">
+<p>22. What makes her proud?</p>
+<label><input type="radio" name="q22"> Your hard work</label>
+<label><input type="radio" name="q22"> Your maturity</label>
+<label><input type="radio" name="q22"> Your patience</label>
+</div>
+
+<div class="quiz-box">
+<p>23. What does she love doing with you?</p>
+<label><input type="radio" name="q23"> Talking for hours</label>
+<label><input type="radio" name="q23"> Laughing together</label>
+<label><input type="radio" name="q23"> Cuddling</label>
+</div>
+
+<div class="quiz-box">
+<p>24. What is your love story?</p>
+<label><input type="radio" name="q24"> Cute</label>
+<label><input type="radio" name="q24"> Soft</label>
+<label><input type="radio" name="q24"> Pure</label>
+</div>
+
+<div class="quiz-box">
+<p>25. What does Nisha want to tell you?</p>
+<label><input type="radio" name="q25"> I love you</label>
+<label><input type="radio" name="q25"> I’m always with you</label>
+<label><input type="radio" name="q25"> You’re my forever</label>
+</div>
+<!-- QUESTIONS END -->
+
+<button type="button" onclick="showResult()">Submit Quiz</button>
+
+<div class="result" id="resultBox"></div>
+
+<a class="back" href="games.html">⟵ Back to Games</a>
+
+<script>
+function showResult() {
+    const result = "Aww Jaan, you know me so well! 💖🥺\nYou deserve a big big kiss for this 😘";
+    document.getElementById('resultBox').innerHTML = result.replace(/\n/g, '<br>');
+}
+</script>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</form>
+
+</body>
+</html>

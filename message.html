@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Message for You</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff008c, #ff4fb3, #ff8ad4);
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    h1 {
+        margin-top: 40px;
+        font-size: 2rem;
+        text-shadow: 0 0 12px rgba(255,255,255,0.7);
+    }
+
+    #messageBox {
+        margin: 45px auto 0;
+        width: 85%;
+        background: rgba(255, 255, 255, 0.18);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(255,0,130,0.5);
+    }
+
+    #finalMessage {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+        white-space: pre-wrap;
+        text-shadow: 0 0 8px rgba(255,255,255,0.6);
+        min-height: 200px;
+    }
+
+    /* Floating Hearts */
+    .heart {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.5rem;
+        animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(0.8); opacity: 1; }
+        100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+    }
+
+    /* Button */
+    button {
+        margin-top: 20px;
+        padding: 12px 28px;
+        background: #ff007a;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(255,0,120,0.8);
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+	/* Button */
+    .btn {
+        margin: 20px;
+        display: inline-block;
+        background: #ff007a;
+        padding: 12px 28px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        box-shadow: 0 0 20px rgba(255,0,140,0.7);
+    }
+	 a.back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #ffe2ff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 18px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(255,0,170,0.7);
+    }
+
+</style>
+</head>
+<body>
+
+<h1>💗 A Special Message For You 💗</h1>
+
+<div id="messageBox">
+    <p id="finalMessage"></p>
+</div>
+
+<button onclick="revealMessage()">Tap to Read</button>
+
+<script>
+const messageText = `
+My Jaan… ❤️
+
+There are millions of people in this world,
+but the way you entered my life,
+the way you hold my heart,
+the way you love me…  
+no one could ever do that the way you do.
+
+You are not just my love…
+You are my peace, my comfort, my home.
+
+Every moment with you feels special,
+every memory feels warm,
+and every dream feels possible.
+
+Thank you for loving me the way I always wished to be loved.
+Thank you for choosing me every single day.
+
+I love you more than words… more than distance… 
+more than anything in this entire world.
+
+Yours forever,
+Nisha 💗
+`;
+
+function revealMessage() {
+    let i = 0;
+    const speed = 30;
+    const box = document.getElementById("finalMessage");
+    box.innerHTML = "";
+
+    function type() {
+        if (i < messageText.length) {
+            box.innerHTML += messageText.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Floating hearts generator
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = (Math.random() * 20 + 12) + "px";
+    heart.style.animationDuration = (Math.random() * 2 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 400);
+</script>
+<a href="home.html" class="btn">⬅ Back to Home</a>
+</body>
+</html>
